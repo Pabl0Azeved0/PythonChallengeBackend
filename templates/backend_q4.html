@@ -1,0 +1,37 @@
+{% extends 'backend_q_template.html' %}
+{% block title %}
+    <title>Questão 4</title>
+{% endblock title %}
+{% block extrahead %}
+
+{% endblock extrahead %}
+{% block question %}
+    <form method="post" action="q4">
+        <p class="texting">
+            Dados n inteiros não negativos representando um mapa de elevação onde a largura de cada barra é 1, calcule quanta água é capaz de reter após a chuva.<br>
+            <img src="/static/img/water_graph.png">
+            EXEMPLO:<br>
+            Input: [0,1,0,2,1,0,1,3,2,1,2,1]<br>
+            Output: 6<br><br>
+            Insira uma sequência de ações abaixo:<br>
+                <input type="text" name="graph_array" placeholder="Ex: [5,3,1,0,5]">
+                <button type="submit">Enviar</button><br><br>
+            {% if context %}
+                {% if context.result %}
+                    <br><br><br>Quantidade de água retida: {{ context.result }}
+                {%  elif context.message %}
+                    <span style="color: #fa4353">{{ context.message }}</span>
+                {% endif %}
+            {% endif %}
+            <br>
+            <button type="button" style="background-color: #ff0000;margin-left: 75px;margin-top: 15px;cursor: pointer;border-radius: 8px;color: white;min-width: 70px;min-height: 30px;" onclick="goBack()">
+                Voltar
+            </button>
+            <a href="/backend">
+                <button type="button" style="background-color: #325ca8;margin-left: 75px;margin-top: 15px;cursor: pointer;border-radius: 8px;color: white;min-width: 70px;min-height: 30px;">
+                    Backend
+                </button>
+            </a>
+        </p>
+    </form>
+{% endblock question %}

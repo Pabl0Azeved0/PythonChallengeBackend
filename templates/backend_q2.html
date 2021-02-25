@@ -1,0 +1,40 @@
+{% extends 'backend_q_template.html' %}
+{% block title %}
+    <title>Questão 2</title>
+{% endblock title %}
+{% block extrahead %}
+
+{% endblock extrahead %}
+{% block question %}
+    <form method="post" action="q2">
+        <p class="texting">
+            Um bracket é considerado qualquer um dos seguintes caracteres: (, ), {, }, [ ou ].<br>
+            Dois brackets são considerados um par combinado se o bracket de abertura (isto é, (, [ou {) ocorre à esquerda de um bracket de fechamento (ou seja,),] ou} do mesmo tipo exato. Existem tr ê s tipos de pares de brackets : [ ], { } e ( ).<br><br>
+            Um par de brackets correspondente não é balanceado se o de abertura e o de fechamento não corresponderem entre si. Por exemplo, { [ ( ] ) } não é balanceado porque o conteúdo entre {e} não é balanceado. O primeiro bracket inclui o de abertura, (, e o segundo inclui um bracket de fechamento desbalanceado,].<br><br>
+            Dado sequencias de caracteres, determine se cada sequ ê ncia de brackets é balanceada. Se uma string estiver balanceada, retorne SIM. Caso contrário, retorne NÃO.<br>
+            EXEMPLO:<br>
+            {[()]} SIM<br>
+            {[(])} NAO<br>
+            {{[[(())]]}} SIM<br><br><br>
+            Insira uma sequência de brackets abaixo:<br>
+                <input type="text" name="brackets" placeholder="Ex: [({})]">
+                <button type="submit">Enviar</button><br><br>
+            {% if context %}
+                {% if context.result %}
+                <br><br><br>Balanceado: {{ context.result }}
+                {%  elif context.message %}
+                    <span style="color: #fa4353">{{ context.message }}</span>
+                {% endif %}
+            {% endif %}
+            <br>
+            <button type="button" style="background-color: #ff0000;margin-left: 75px;margin-top: 15px;cursor: pointer;border-radius: 8px;color: white;min-width: 70px;min-height: 30px;" onclick="goBack()">
+                Voltar
+            </button>
+            <a href="/backend/q3">
+                <button type="button" style="background-color: #23d123;margin-left: 75px;margin-top: 15px;cursor: pointer;border-radius: 8px;color: white;min-width: 70px;min-height: 30px;">
+                    Avançar
+                </button>
+            </a>
+        </p>
+    </form>
+{% endblock question %}

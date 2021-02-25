@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {% endblock title %}
+    {% block extrahead %}
+    {% endblock extrahead %}
+    <style>
+        .texting {
+            font-family: "Manjari Thin";
+            margin-left: 1em;
+            margin-right: 1em;
+            color: white;
+        }
+        body {
+            background-image: url('/static/img/background_questions.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .container {
+            position: relative;
+            background-color: #164116;
+            border: 6px solid #673d13;
+            margin: 3em 2em;
+            min-height: 30em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block question %}
+        {% endblock question %}
+    </div>
+</body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+</html>
